@@ -3,6 +3,7 @@
 module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'pwa-app',
+    podModulePrefix: 'pwa-app/pods',
     environment,
     rootURL: '/',
     locationType: 'history',
