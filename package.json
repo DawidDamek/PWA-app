@@ -75,5 +75,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "ember-scanner": "^0.3.7"
   }
 }

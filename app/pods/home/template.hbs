@@ -1,3 +1,20 @@
-{{page-title 'Home'}}
+<h1 class='text-center'>HOME</h1>
 
-HOME
+<div class='container bg-secondary'>
+  <LinkTo @route='qr-scan'>
+    <button type='button' class='btn btn-primary'>New scan</button></LinkTo>
+  <p> Tu będzie wynik skanu QR</p>
+</div>
+
+<div class='container bg-secondary'>
+  <LinkTo @route='maps'>
+    <button type='button' class='btn btn-primary'>Go to maps</button></LinkTo>
+  <p> Tu link do map</p>
+</div>
+
+<div class='container bg-secondary'>
+  {{! <LinkTo @route='qr-scan'> }}
+  <button type='button' class='btn btn-primary'>Gyro</button>
+  {{! </LinkTo> }}
+  <p> Tu będzie coś z zyroskopem</p>
+</div>
