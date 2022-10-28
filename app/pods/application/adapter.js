@@ -1,3 +1,2 @@
-import JSONAPIAdapter from '@ember-data/adapter/json-api';
-
-export default class ApplicationAdapter extends JSONAPIAdapter {}
+import LocalStorageAdapter from 'ember-local-storage/adapters/local';
+export default class ApplicationAdapter extends LocalStorageAdapter {}
