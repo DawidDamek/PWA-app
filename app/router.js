@@ -10,4 +10,5 @@ Router.map(function () {
   this.route('home', { path: '/' });
   this.route('maps');
   this.route('notes');
+  this.route('scan');
 });

@@ -1,13 +1,21 @@
 <h1 class='text-center'>HOME</h1>
 
 <div class='container bg-secondary my-2 text-center'>
-  <QrScan />
+  <LinkTo @route='scan'>
+    <button type='button' class='btn btn-primary btn-sm my-2'>
+      Scan
+    </button>
+  </LinkTo>
 </div>
 
 <div class='container bg-secondary my-2 text-center'>
   <LinkTo @route='maps'>
-    <button type='button' class='btn btn-primary btn-sm my-2'>Go to maps</button></LinkTo>
+    <button type='button' class='btn btn-primary btn-sm my-2'>
+      Go to maps
+    </button>
+  </LinkTo>
 </div>
+
 <div class='container bg-secondary my-2 text-center'>
   <LinkTo @route='notes'>
     <button type='button' class='btn btn-primary btn-sm my-2'>
@@ -17,6 +25,7 @@
 </div>
 
 <div class='container bg-secondary my-2 text-center'>
-  <button type='button' class='btn btn-primary btn-sm my-2'>Gyro</button>
-  <p> Tu będzie coś z zyroskopem</p>
+  <button type='button' class='btn btn-primary btn-sm my-2'>
+    Gyro
+  </button>
 </div>
