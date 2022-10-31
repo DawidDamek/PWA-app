@@ -1,12 +1,11 @@
-<button
-  type='button'
-  class='btn btn-primary btn-sm my-2'
-  {{on 'click' this.onScanStart}}
->
-  New scan
-</button>
-
 {{#if this.isScanning}}
+  <button
+    type='button'
+    class='btn btn-primary btn-sm my-2'
+    {{on 'click' this.onScanToggle}}
+  >
+    Cancel
+  </button>
   <CodeScanner
     @device={{this.device.id}}
     @onScanSuccess={{this.onScanSuccess}}
@@ -14,6 +13,14 @@
     @onDevicesFound={{this.onDevicesFound}}
     @onDevicesError={{this.onDevicesError}}
   />
+{{else}}
+  <button
+    type='button'
+    class='btn btn-primary btn-sm my-2'
+    {{on 'click' this.onScanToggle}}
+  >
+    New scan
+  </button>
 {{/if}}
 
 {{#if this.result.length}}

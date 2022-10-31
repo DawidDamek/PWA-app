@@ -30,8 +30,8 @@ export default class QrOdAdamaComponent extends Component {
   }
 
   @action
-  onScanStart() {
-    this.isScanning = true;
+  onScanToggle() {
+    this.isScanning = !this.isScanning;
     this.result = '';
   }
 }
