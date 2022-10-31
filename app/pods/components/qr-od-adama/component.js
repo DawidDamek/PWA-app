@@ -5,6 +5,7 @@ import { action } from '@ember/object';
 export default class QrOdAdamaComponent extends Component {
   @tracked device;
   @tracked result = '';
+  @tracked isScanning = false;
 
   @action
   onDevicesFound(device) {
@@ -15,11 +16,12 @@ export default class QrOdAdamaComponent extends Component {
   onScanSuccess(result) {
     this.result = result.text;
     console.log(result.text);
+    this.isScanning = false;
   }
 
   @action
-  onScanError() {
-    console.log('err');
+  onScanError(error) {
+    console.log(error);
   }
 
   @action
@@ -28,7 +30,8 @@ export default class QrOdAdamaComponent extends Component {
   }
 
   @action
-  resetResult() {
+  onScanStart() {
+    this.isScanning = true;
     this.result = '';
   }
 }

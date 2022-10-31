@@ -1,20 +1,15 @@
 <h1 class='text-center'>HOME</h1>
 
-<div class='container bg-secondary'>
-  <LinkTo @route='qr-scan'>
-    <button type='button' class='btn btn-primary'>New scan</button></LinkTo>
-  <p> Tu będzie wynik skanu QR</p>
+<div class='container bg-secondary my-2 text-center'>
+  <QrOdAdama />
 </div>
 
-<div class='container bg-secondary'>
+<div class='container bg-secondary my-2 text-center'>
   <LinkTo @route='maps'>
-    <button type='button' class='btn btn-primary'>Go to maps</button></LinkTo>
-  <p> Tu link do map</p>
+    <button type='button' class='btn btn-primary btn-sm my-2'>Go to maps</button></LinkTo>
 </div>
 
-<div class='container bg-secondary'>
-  {{! <LinkTo @route='qr-scan'> }}
-  <button type='button' class='btn btn-primary'>Gyro</button>
-  {{! </LinkTo> }}
+<div class='container bg-secondary my-2 text-center'>
+  <button type='button' class='btn btn-primary btn-sm my-2'>Gyro</button>
   <p> Tu będzie coś z zyroskopem</p>
 </div>

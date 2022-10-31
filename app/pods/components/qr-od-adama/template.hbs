@@ -1,12 +1,22 @@
-<CodeScanner
-  @device={{this.device.id}}
-  @onScanSuccess={{this.onScanSuccess}}
-  @onScanError={{this.onScanError}}
-  @onDevicesFound={{this.onDevicesFound}}
-  @onDevicesError={{this.onDevicesError}}
-/>
-
-<button type='button' class='btn btn-primary' {{on 'click' this.resetResult}}>
-  Reset
+<button
+  type='button'
+  class='btn btn-primary btn-sm my-2'
+  {{on 'click' this.onScanStart}}
+>
+  New scan
 </button>
-<p>Result: {{this.result}}</p>
+
+{{#if this.isScanning}}
+  <CodeScanner
+    @device={{this.device.id}}
+    @onScanSuccess={{this.onScanSuccess}}
+    @onScanError={{this.onScanError}}
+    @onDevicesFound={{this.onDevicesFound}}
+    @onDevicesError={{this.onDevicesError}}
+  />
+{{/if}}
+
+{{#if this.result.length}}
+  <p class='my-1'> ✅ </p>
+  <div>Result: {{this.result}}</div>
+{{/if}}
