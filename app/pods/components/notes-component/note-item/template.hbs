@@ -1,0 +1,11 @@
+<div class='container'>
+  <ul class='list-group my-2 border'>
+    <li class='list-group-item d-flex justify-content-between'>
+      <b>{{@note.title}}</b>
+      <button class='btn' type='button' {{on 'click' this.onDeleteNote}}>
+        🗑
+      </button>
+    </li>
+    <li class='list-group-item'>{{@note.description}}</li>
+  </ul>
+</div>

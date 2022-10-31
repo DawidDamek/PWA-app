@@ -1,1 +1,34 @@
-notes component
+<div class='container my-3'>
+  <div class='input-group mb-3'>
+    <span class='input-group-text' id='title-input'>Title</span>
+    <input
+      type='text'
+      class='form-control'
+      aria-label='Username'
+      aria-describedby='basic-addon1'
+      {{on 'change' this.onTitleChange}}
+    />
+  </div>
+  <div class='input-group mb-3'>
+    <span class='input-group-text' id='description-input'>Description</span>
+    <input
+      type='text'
+      class='form-control'
+      aria-label='Username'
+      aria-describedby='basic-addon1'
+      {{on 'change' this.onDescriptionChange}}
+    />
+  </div>
+
+  <button
+    class='btn btn-primary w-75 d-block mx-auto'
+    type='button'
+    {{on 'click' this.onNoteSave}}
+  >
+    Add note
+  </button>
+</div>
+
+{{#each this.notes as |note|}}
+  <NotesComponent::NoteItem @note={{note}} />
+{{/each}}
