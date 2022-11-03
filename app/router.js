@@ -11,4 +11,5 @@ Router.map(function () {
   this.route('maps');
   this.route('notes');
   this.route('scan');
+  this.route('gyro');
 });
