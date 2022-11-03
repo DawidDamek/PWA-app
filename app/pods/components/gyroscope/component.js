@@ -9,19 +9,18 @@ export default class GyroscopeComponent extends Component {
 
   constructor() {
     super(...arguments);
-    if (window.DeviceOrientationEvent) {
-      window.addEventListener(
-        'deviceorientation',
-        (event) => {
-          const rotateDegrees = event.alpha; // alpha: rotation around z-axis
-          const leftToRight = event.gamma; // gamma: left to right
-          const frontToBack = event.beta; // beta: front back motion
 
-          this.handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
-        },
-        true
-      );
-    }
+    window.addEventListener(
+      'deviceorientation',
+      (event) => {
+        const rotateDegrees = event.alpha; // alpha: rotation around z-axis
+        const leftToRight = event.gamma; // gamma: left to right
+        const frontToBack = event.beta; // beta: front back motion
+
+        this.handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
+      },
+      true
+    );
   }
   handleOrientationEvent = (frontToBack, leftToRight, rotateDegrees) => {
     this.x = frontToBack;
