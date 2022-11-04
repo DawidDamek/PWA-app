@@ -13,7 +13,7 @@ export default class GyroscopeComponent extends Component {
   constructor() {
     super(...arguments);
     if (!this.fastboot.isFastBoot) {
-      DeviceOrientationEvent.requestPermission()
+      DeviceOrientationEvent.requestPermission?.()
         .then((response) => {
           if (response == 'granted') {
             window.addEventListener('deviceorientation', (event) => {
