@@ -15,7 +15,6 @@ export default class QrOdAdamaComponent extends Component {
   @action
   onScanSuccess(result) {
     this.result = result.text;
-    console.log(result.text);
     this.isScanning = false;
   }
 
