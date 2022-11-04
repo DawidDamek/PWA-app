@@ -17,9 +17,9 @@ export default class GyroscopeComponent extends Component {
         .then((response) => {
           if (response == 'granted') {
             window.addEventListener('deviceorientation', (event) => {
-              this.beta = event.beta;
-              this.gamma = event.gamma;
-              this.alpha = event.alpha;
+              this.beta = event.beta.toFixed(1);
+              this.gamma = event.gamma.toFixed(1);
+              this.alpha = event.alpha.toFixed(1);
             });
           }
         })
