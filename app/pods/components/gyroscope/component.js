@@ -13,11 +13,17 @@ export default class GyroscopeComponent extends Component {
   constructor() {
     super(...arguments);
     if (!this.fastboot.isFastBoot) {
-      window.addEventListener('deviceorientation', (event) => {
-        this.beta = event.beta;
-        this.gamma = event.gamma;
-        this.alpha = event.alpha;
-      });
+      DeviceOrientationEvent.requestPermission()
+        .then((response) => {
+          if (response == 'granted') {
+            window.addEventListener('deviceorientation', (event) => {
+              this.beta = event.beta;
+              this.gamma = event.gamma;
+              this.alpha = event.alpha;
+            });
+          }
+        })
+        .catch(console.error);
     }
   }
 
