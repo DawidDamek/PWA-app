@@ -10,7 +10,7 @@ export default class OnlineStatusComponent extends Component {
   constructor() {
     super(...arguments);
     if (!this.fastboot.isFastBoot) {
-      this.fastboot = navigator.onLine;
+      this.isOnline = navigator.onLine;
       window.addEventListener('online', this.onSetOnline);
       window.addEventListener('offline', this.onSetOffline);
     }
