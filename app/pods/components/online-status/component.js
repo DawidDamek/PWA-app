@@ -16,12 +16,12 @@ export default class OnlineStatusComponent extends Component {
     }
   }
   @action
-  onOnline() {
+  onSetOnline() {
     this.isOnline = true;
   }
 
   @action
-  onOffline() {
+  onSetOffline() {
     this.isOnline = false;
   }
 
