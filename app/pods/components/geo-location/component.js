@@ -5,16 +5,14 @@ import { action } from '@ember/object';
 export default class GeoLocationComponent extends Component {
   constructor() {
     super(...arguments);
-
-    navigator.permissions.query({ name: 'geolocation' }).then((result) => {
-      if (result.state === 'granted') {
-        try {
+    navigator.geolocation
+      .requestPermission?.()
+      .then((response) => {
+        if (response == 'granted') {
           this.getMyCoord();
-        } catch (err) {
-          throw new Error(err);
         }
-      }
-    });
+      })
+      .catch(console.error);
   }
 
   @tracked myLat;
