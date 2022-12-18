@@ -48,7 +48,7 @@ export default class GeoLocationComponent extends Component {
       this.lng = position.coords.longitude;
       this.myLat = this.lat;
       this.myLng = this.lng;
-    });
+    }, this.error);
   }
 
   @action
@@ -57,5 +57,9 @@ export default class GeoLocationComponent extends Component {
     this.lat = marker.lat;
     this.lng = marker.lng;
     this.zoom = 20;
+  }
+
+  error(error) {
+    console.log(error.message);
   }
 }
