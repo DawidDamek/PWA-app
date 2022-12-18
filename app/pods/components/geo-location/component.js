@@ -5,7 +5,11 @@ import { action } from '@ember/object';
 export default class GeoLocationComponent extends Component {
   constructor() {
     super(...arguments);
-    this.getMyCoord();
+    try {
+      this.getMyCoord();
+    } catch (err) {
+      throw new Error(err);
+    }
   }
 
   @tracked myLat;
