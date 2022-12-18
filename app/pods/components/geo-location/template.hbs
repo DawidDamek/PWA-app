@@ -1,0 +1,59 @@
+<div class='mb-2 text-muted'>
+  <div class='text-center'>
+    <div>Your position:</div>
+    <div>
+      Latitude:
+      {{this.myLat}}
+    </div>
+
+    <div>
+      Logitude:
+      {{this.myLng}}
+    </div>
+    <button
+      class='btn btn-primary'
+      type='button'
+      {{on 'click' this.getMyCoord}}
+    >
+      Refresh my location
+    </button>
+  </div>
+  {{#if (and this.lat this.lng)}}
+    <div class='text-center mt-3'>
+      <div>Marker position:</div>
+      <div>
+        Latitude:
+        {{this.lat}}
+      </div>
+
+      <div>
+        Logitude:
+        {{this.lng}}
+      </div>
+    </div>
+  {{/if}}
+</div>
+
+<ul class='list-group mt-3 text-center'>
+  {{#each this.markers as |marker|}}
+    <li
+      class='list-group-item
+        {{if (and (eq this.lat marker.lat) (eq this.lng marker.lng)) "active"}}'
+      role='button'
+      {{on 'click' (fn this.onClickMarker marker)}}
+    >
+      {{marker.description}}
+    </li>
+  {{/each}}
+</ul>
+<div class='d-flex justify-content-center mt-5 pb-5'>
+  <GMap @lat={{this.lat}} @lng={{this.lng}} @zoom={{this.zoom}} as |map|>
+    {{#each this.markers as |marker|}}
+      <map.marker
+        @lat={{marker.lat}}
+        @lng={{marker.lng}}
+        @onClick={{fn this.onClickMarker marker}}
+      />
+    {{/each}}
+  </GMap>
+</div>

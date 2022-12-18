@@ -5,6 +5,10 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
+    dotEnv: {
+      clientAllowedKeys: ['API_MAPS'],
+      fastbootAllowedKeys: ['API_MAPS'],
+    },
     prember: {
       urls: ['/'],
     },
