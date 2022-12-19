@@ -5,14 +5,7 @@ import { action } from '@ember/object';
 export default class GeoLocationComponent extends Component {
   constructor() {
     super(...arguments);
-    navigator.geolocation.getCurrentPosition
-      .requestPermission?.()
-      .then((response) => {
-        if (response == 'granted') {
-          this.getMyCoord();
-        }
-      })
-      .catch(console.error);
+    this.getMyCoord();
   }
 
   @tracked myLat;
@@ -46,12 +39,14 @@ export default class GeoLocationComponent extends Component {
 
   @action
   getMyCoord() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.lat = position.coords.latitude;
-      this.lng = position.coords.longitude;
-      this.myLat = this.lat;
-      this.myLng = this.lng;
-    }, this.error);
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+        this.myLat = this.lat;
+        this.myLng = this.lng;
+      }, this.error);
+    }
   }
 
   @action
