@@ -39,7 +39,7 @@ export default class GeoLocationComponent extends Component {
 
   @action
   getMyCoord() {
-    if ('geolocation' in navigator) {
+    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
