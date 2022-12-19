@@ -5,7 +5,7 @@ import { action } from '@ember/object';
 export default class GeoLocationComponent extends Component {
   constructor() {
     super(...arguments);
-    navigator.geolocation
+    navigator.geolocation.getCurrentPosition
       .requestPermission?.()
       .then((response) => {
         if (response == 'granted') {
