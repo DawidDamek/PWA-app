@@ -40,12 +40,7 @@ export default class GeoLocationComponent extends Component {
   @action
   getMyCoord() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.lat = position.coords.latitude;
-        this.lng = position.coords.longitude;
-        this.myLat = this.lat;
-        this.myLng = this.lng;
-      }, this.error);
+      navigator.geolocation.getCurrentPosition(this.saveLocation, this.error);
     }
   }
 
@@ -55,6 +50,13 @@ export default class GeoLocationComponent extends Component {
     this.lng = marker.lng;
     this.zoom = 20;
   }
+
+  saveLocation = (position) => {
+    this.lat = position.coords.latitude;
+    this.lng = position.coords.longitude;
+    this.myLat = this.lat;
+    this.myLng = this.lng;
+  };
 
   error(error) {
     console.log(error.message);
