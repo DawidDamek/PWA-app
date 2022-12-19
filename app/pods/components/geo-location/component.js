@@ -51,7 +51,6 @@ export default class GeoLocationComponent extends Component {
 
   @action
   onClickMarker(marker) {
-    this.isSelleoCord = false;
     this.lat = marker.lat;
     this.lng = marker.lng;
     this.zoom = 20;
